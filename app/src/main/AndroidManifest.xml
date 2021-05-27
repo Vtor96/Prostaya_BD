@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProstoySpisok">
-        <activity android:name=".UserPagerActivity"/>
+        <activity android:name=".UserPagerActivity" />
         <activity android:name=".AddUserActivity" />
         <activity android:name=".UserActivity" />
         <activity android:name=".Item" />

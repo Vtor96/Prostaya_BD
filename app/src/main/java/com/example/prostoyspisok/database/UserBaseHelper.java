@@ -31,7 +31,5 @@ public class UserBaseHelper extends SQLiteOpenHelper{
 
     //если база существует и отличаются версии, то вызывается onUpgrade
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        Log.d("SYSTEM INFO: ", "Метод onUpgrade() запущен");
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){}
 }

@@ -2,6 +2,7 @@ package com.example.prostoyspisok;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -32,6 +33,19 @@ public class Users{
     public void addUser(User user){ //метод добавления пользователя в БД
         ContentValues values = getContentValues(user);
         database.insert(UserDBSchema.UserTable.NAME, null, values);
+    }
+
+    public void upgUser(User user) {
+        String uuidString = user.getUuid().toString();
+        ContentValues values = getContentValues(user);
+
+        database.update(UserDBSchema.UserTable.NAME,values,
+                UserDBSchema.UserTable.Cols.UUID+"=?", new String[]{uuidString});
+    }
+
+    public void deleteUser(String uuid) {
+        String del = String.format("%s = '%s'", UserDBSchema.UserTable.Cols.UUID, uuid);
+        database.delete(UserDBSchema.UserTable.NAME, del, null);
     }
 
     private static ContentValues getContentValues(User user){
